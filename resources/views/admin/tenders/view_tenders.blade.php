@@ -1,6 +1,6 @@
 @extends('layouts.adminLayout.admin_design')
 
-@section('title', 'Categories')
+@section('title', 'Tenders')
 
 @section('content')
 
@@ -10,10 +10,10 @@
     <li class="breadcrumb-item">
       <a href="{{ url('/dashboard') }}">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Categories</li>
+    <li class="breadcrumb-item active">Tenders</li>
   </ol>
 
-  <a href="{{ url('/admin/add-category') }}" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Add Category</a>
+  <a href="{{ url('/admin/add-tender') }}" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Add Tender</a>
 
   @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
@@ -26,27 +26,29 @@
   <div class="card mb-3">
     <div class="card-header">
       <i class="fas fa-list"></i>
-      Categories List</div>
+      Tenders List</div>
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+              <th>Tender Name</th>
+              <th>Tender Description</th>
               <th>Category Name</th>
-              <th>Category Level</th>
-              <th>Category URL</th>
+              <th>End Date</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($categories as $category)
+            @foreach($tenders as $tender)
             <tr>
-              <td>{{$category->name}}</td>
-              <td>{{$category->parent_id}}</td>
-              <td>{{$category->url}}</td>
+              <td>{{ $tender->tender_name }}</td>
+              <td>{!! $tender->tender_description !!}</td>
+              <td>{{ $tender->category_name }}</td>
+              <td>{{ $tender->end_date }}</td>
               <td>
-                  <a href="{{ url('/admin/edit-category',$category->id) }}" class="btn btn-sm btn-primary"><i class="far fa-edit"></i> Edit</a>
-                  <a href="{{ url('/admin/delete-category',$category->id) }}" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                  <a href="{{ url('/admin/edit-tender/'.$tender->id) }}" class="btn btn-sm btn-primary"><i class="far fa-edit"></i> Edit</a>
+                  <a href="{{ url('/admin/delete-tender/'.$tender->id) }}" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
               </td>
             </tr>
             @endforeach

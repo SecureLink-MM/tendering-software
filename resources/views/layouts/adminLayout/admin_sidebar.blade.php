@@ -12,7 +12,7 @@
       <span>Categories</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="{{ route('view.tenders') }}">
       <i class="fas fa-paste"></i>
       <span>Tenders</span></a>
   </li>
