@@ -32,6 +32,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+              <th>Category ID</th>
               <th>Category Name</th>
               <th>Category Level</th>
               <th>Category URL</th>
@@ -41,6 +42,7 @@
           <tbody>
             @foreach($categories as $category)
             <tr>
+              <td>{{$category->id}}</td>
               <td>{{$category->name}}</td>
               <td>{{$category->parent_id}}</td>
               <td>{{$category->url}}</td>

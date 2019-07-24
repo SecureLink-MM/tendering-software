@@ -33,7 +33,6 @@
           <thead>
             <tr>
               <th>Tender Name</th>
-              <th>Tender Description</th>
               <th>Category Name</th>
               <th>End Date</th>
               <th>Actions</th>
@@ -42,9 +41,8 @@
           <tbody>
             @foreach($tenders as $tender)
             <tr>
-              <td>{{ $tender->tender_name }}</td>
-              <td>{!! $tender->tender_description !!}</td>
-              <td>{{ $tender->category_name }}</td>
+              <td>{{ Str::words($tender->tender_name,2) }}</td>
+              <td>{{ Str::words($tender->category_name,5) }}</td>
               <td>{{ $tender->end_date }}</td>
               <td>
                   <a href="{{ url('/admin/edit-tender/'.$tender->id) }}" class="btn btn-sm btn-primary"><i class="far fa-edit"></i> Edit</a>
