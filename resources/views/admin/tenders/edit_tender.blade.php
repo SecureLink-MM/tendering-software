@@ -8,7 +8,7 @@
   <!-- Breadcrumbs-->
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="{{ url('/dashboard') }}">Dashboard</a>
+      <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
     </li>
     <li class="breadcrumb-item">
       <a href="{{ route('view.tenders') }}">Tenders</a>

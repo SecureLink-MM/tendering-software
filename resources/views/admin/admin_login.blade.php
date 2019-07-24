@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Register</title>
+  <title>Login</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -23,24 +23,24 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Register</div>
+      <div class="card-header">Admin Login</div>
       <div class="card-body">
         <div class="mb-3">
+          @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{ $message }}
+            </div>
+          @endif
           @if ($message = Session::get('error'))
             <div class="alert alert-danger alert-block">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              {{ $message }}
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{ $message }}
             </div>
           @endif
         </div>
-        <form action="{{ route('auth.postRegister') }}" method="post">
+        <form action="{{ route('admin.login') }}" method="post">
           @csrf
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required="required" autofocus="autofocus">
-              <label for="name">Your Name</label>
-            </div>
-          </div>
           <div class="form-group">
             <div class="form-label-group">
               <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
@@ -53,11 +53,8 @@
               <label for="password">Password</label>
             </div>
           </div>
-          <input type="submit" class="btn btn-primary btn-block" value="Register">
+          <input type="submit" class="btn btn-primary btn-block" value="Login">
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="{{ route('auth.showLogin') }}">Login Page</a>
-        </div>
       </div>
     </div>
   </div>

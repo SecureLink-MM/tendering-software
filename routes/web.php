@@ -5,23 +5,24 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::match(['get', 'post'], '/admin', 'AdminController@login')->name('admin.login');
 
-Route::group(['middleware' => ['checkUserLogin']], function(){
-    Route::get('/dashboard', 'AuthController@dashboard');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/admin/dashboard', 'AdminController@dashboard');
+    // Admin Category Route
     Route::match(['get', 'post'], '/admin/add-category', 'CategoryController@addCategory');
     Route::match(['get', 'post'], '/admin/edit-category/{id}', 'CategoryController@editCategory');
     Route::match(['get', 'post'], '/admin/delete-category/{id}', 'CategoryController@deleteCategory');
     Route::get('/admin/view-categories', 'CategoryController@viewCategories')->name('view.categories');
-
+    // Admin Tender Route
     Route::match(['get', 'post'], '/admin/add-tender', 'TenderController@addTender');
     Route::match(['get', 'post'], '/admin/edit-tender/{id}', 'TenderController@editTender');
     Route::match(['get', 'post'], '/admin/delete-tender/{id}', 'TenderController@deleteTender');
     Route::get('/admin/view-tenders', 'TenderController@viewTenders')->name('view.tenders');
 });
 
-Route::get('/register', 'AuthController@register')->name('auth.showRegister')->middleware('checkUserNotLogin');
-Route::get('/login', 'AuthController@login')->name('auth.showLogin')->middleware('checkUserNotLogin');
-
-Route::post('/register', 'AuthController@postRegister')->name('auth.postRegister')->middleware('checkUserNotLogin');
-Route::post('/login', 'AuthController@postLogin')->name('auth.postLogin')->middleware('checkUserNotLogin');
-Route::get('/logout', 'AuthController@logout')->name('auth.logout');
+Route::get('/logout', 'AdminController@logout')->name('admin.logout');
