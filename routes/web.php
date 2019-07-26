@@ -13,6 +13,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Category/Listing Page
+Route::get('/tenders/{url}', 'TenderController@tenders');
+
+// Tender Details Page
+Route::get('/tender/{id}', 'TenderController@tender');
+
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/admin/dashboard', 'AdminController@dashboard');
     // Admin Category Route

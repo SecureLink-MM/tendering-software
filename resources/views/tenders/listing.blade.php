@@ -7,7 +7,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> ပင်မစာမျက်နှာ</a></li>
-                <li class="breadcrumb-item active" aria-current="page">တင်ဒါများ</li>
+                <li class="breadcrumb-item"><a href="{{url('/')}}">တင်ဒါများ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$categoryDetails->name}}</li>
             </ol>
         </nav>
     </div>
@@ -22,7 +23,7 @@
                             <div class="post-head">
                                 <div class="row">
                                     <div class="col-md-8">
-                                      <h2 class="title"> တင်ဒါများ</h2>
+                                      <h2 class="title"> {{$categoryDetails->name}} </h2>
                                     </div>
                                     <div class="col-md-48">
                                        <span class="pull-right">
@@ -46,7 +47,7 @@
 
                                         <a href="{{ url('tender/'.$tender->id) }}"><button class="btn">READ MORE </button></a>
                                         <br>
-                                        <!-- <span class="redcolor"> <b> Agency  :</b>  </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                                        <span class="redcolor"> <b> Agency  :</b>  {{$categoryDetails->name}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <span class="redcolor"><b> ပိတ်သိမ်းမည့်နေ့  :</b> {{ $tender->end_date }} </span>
                                     </div>
                                 </div>

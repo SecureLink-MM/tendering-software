@@ -89,4 +89,37 @@ class TenderController extends Controller
         }
         return view('admin.tenders.view_tenders')->with(compact('tenders'));
     }
+
+    // Category Listing Page
+    public function tenders($url = null){
+        // Get All Category and Sub Category
+        $categories = Category::with('categories')->where(['parent_id'=>0])->get();
+        $categoryDetails = Category::where(['url'=>$url])->first();
+
+        if ($categoryDetails->parent_id==0) {
+            // If url is main category url
+            $subCategories = Category::where(['parent_id' => $categoryDetails->id])->get();
+            $subCategories = json_decode(json_encode($subCategories));
+            foreach ($subCategories as $subcat) {
+                $cat_ids[] = $subcat->id;
+            }
+            $tendersAll = Tender::whereIn('category_id', $cat_ids)->get();
+        }else {
+            // If url is sub category url
+            $tendersAll = Tender::where(['category_id'=>$categoryDetails->id])->get();
+        }
+
+        return view('tenders.listing')->with(compact('categories', 'categoryDetails', 'tendersAll'));
+    }
+
+    // Tender Detail Page
+    public function tender($id = null){
+        // Get Tender Details
+        $tenderDetails = Tender::where(['id'=>$id])->first();
+
+        // Get All Category and Sub Category
+        $categories = Category::with('categories')->where(['parent_id'=>0])->get();
+
+        return view('tenders.detail')->with(compact('tenderDetails', 'categories'));
+    }
 }

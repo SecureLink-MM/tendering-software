@@ -1,3 +1,9 @@
+<?php
+
+use App\Http\Controllers\Controller;
+$mainCategories = Controller::mainCategories();
+
+?>
 <header>
     <!-- START HEADER TOP SECTION -->
     <div class="header-top">
@@ -63,10 +69,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >တင်ဒါများ</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">တင်ဒါခေါ်ယူခြင်း</a></li>
-                            <li><a href="#">တင်ဒါဆိုင်ရာအချက်အလက်များ</a></li>
-                            <li><a href="#">တင်ဒါအောင်မြင်သူများ</a></li>
-                            <li><a href="#">တင်ဒါပုံစံ</a></li>
+                            @foreach($mainCategories as $cat)
+                              <li><a href="{{ asset('tenders/'.$cat->url) }}">{{ $cat->name }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">ဆက်သွယ်ရန်</a></li>

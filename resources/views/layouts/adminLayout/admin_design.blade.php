@@ -84,6 +84,11 @@
   <!-- Demo scripts for this page-->
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
   <script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>
+  <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
 
 </body>
 

@@ -45,8 +45,8 @@
               <td>{{ Str::words($tender->category_name,5) }}</td>
               <td>{{ $tender->end_date }}</td>
               <td>
-                  <a href="{{ url('/admin/edit-tender/'.$tender->id) }}" class="btn btn-sm btn-primary"><i class="far fa-edit"></i> Edit</a>
-                  <a href="{{ url('/admin/delete-tender/'.$tender->id) }}" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                  <a href="{{ url('/admin/edit-tender/'.$tender->id) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="far fa-edit"></i></a>
+                  <a href="{{ url('/admin/delete-tender/'.$tender->id) }}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="delete"><i class="far fa-trash-alt"></i></a>
               </td>
             </tr>
             @endforeach
