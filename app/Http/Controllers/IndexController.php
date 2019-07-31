@@ -11,7 +11,7 @@ class IndexController extends Controller
     public function index(){
 
         // Get All Tenders
-        $tendersAll = Tender::get();
+        $tendersAll = Tender::paginate(5);
 
         // Get All Category and Sub Category
         $categories_menu = "";

@@ -30,7 +30,7 @@
                                         <h4><a href="#" class="title">{!! $tenderDetails->tender_description !!}</h4>
                                         <span class="redcolor"><b> ပိတ်သိမ်းမည့်နေ့  :</b> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ $tenderDetails->end_date }} </span>
                                         <br><br>
-                                        <a href="fill-information.html"><button class="btn btn_success">တင်ဒါဝယ်ယူရန် </button></a>
+                                        <a href="#"><button class="btn btn_success">တင်ဒါဝယ်ယူရန် </button></a>
                                     </div>
                                 </div>
                             </div>

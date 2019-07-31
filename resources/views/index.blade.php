@@ -55,19 +55,7 @@
                             <!--Post footer-->
                             <div class="post-footer">
                                 <!-- pagination -->
-                                <ul class="pagination">
-                                    <li class="disabled"><span class="ti-angle-left"></span></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">6</a></li>
-                                    <li><a href="#">7</a></li>
-                                    <li class="disabled"><span class="extend">...</span></li><li>
-                                    <li><a href="#">20</a></li>
-                                    <li><a href="#"><i class="ti-angle-right"></i></a></li>
-                                </ul>
+                                {{ $tendersAll->links() }}
                             </div>
                         </div>
                     </div>

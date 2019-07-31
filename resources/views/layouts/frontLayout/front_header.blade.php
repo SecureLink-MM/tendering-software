@@ -17,7 +17,7 @@ $mainCategories = Controller::mainCategories();
                 <div class="hidden-xs col-md-6 col-sm-6 col-lg-6">
                     <div class="header-right-menu">
                         <ul>
-                            <li> <a href="login.html"> LOGIN </a> / <a href="fill-information.html"> REGISTER </a> </a></li>
+                            <li> <a href="#"> LOGIN </a> / <a href="#"> REGISTER </a> </a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,9 +35,9 @@ $mainCategories = Controller::mainCategories();
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <a href="index.html"> <div class="hidden-md hidden-lg col-xs-12"> <center><img src="assets/images/logo.png" class="img-responsive" alt="" width="85px"></center> </div>
+                    <a href="{{ url('/') }}"> <div class="hidden-md hidden-lg col-xs-12"> <center><img src="assets/images/logo.png" class="img-responsive" alt="" width="85px"></center> </div>
 
-                    <a href="index.html"> <h3 class="logo_title"> ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်  <br> စက်မှုဝန်ကြီးဌာန  <br>လျှပ်စစ်နှင့်စွမ်းအင်ဝန်ကြီးဌာန</h3></a>
+                    <a href="{{ url('/') }}"> <h3 class="logo_title"> ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်  <br> စက်မှုဝန်ကြီးဌာန  <br>လျှပ်စစ်နှင့်စွမ်းအင်ဝန်ကြီးဌာန</h3></a>
                 </div>
             </div>
         </div>
@@ -66,14 +66,15 @@ $mainCategories = Controller::mainCategories();
                     <li class="dropdown active">
                         <a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i> ပင်မစာမျက်နှာ</a>
                     </li>
-                    <li class="dropdown">
+                    <li><a href="{{ url('/') }}">တင်ဒါများ</a></li>
+                    <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >တင်ဒါများ</a>
                         <ul class="dropdown-menu">
                             @foreach($mainCategories as $cat)
                               <li><a href="{{ asset('tenders/'.$cat->url) }}">{{ $cat->name }}</a></li>
                             @endforeach
                         </ul>
-                    </li>
+                    </li> -->
                     <li><a href="#">ဆက်သွယ်ရန်</a></li>
                 </ul>
             </div>
