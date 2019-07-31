@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Department;
 
-class TenderController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class TenderController extends Controller
      */
     public function index()
     {
-        return view('admin.tenders.view-tender');
+        $departments = Department::all();
+        return view('admin.departments.view-department')->with(compact('departments'));
     }
 
     /**
@@ -23,7 +25,7 @@ class TenderController extends Controller
      */
     public function create()
     {
-        return view('admin.tenders.add-tender');
+        return view('admin.departments.add-department');
     }
 
     /**
@@ -34,7 +36,14 @@ class TenderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'department_name' => 'required|min:5'
+        ]);
+        $dep = new Department();
+        $dep->name = request()->department_name;
+        if ($dep->save()) {
+            return redirect(route('department.index'))->with('success', 'Department has been create successfully!');
+        }
     }
 
     /**
@@ -56,7 +65,8 @@ class TenderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return view('admin.departments.edit-department')->with(compact('department'));
     }
 
     /**
@@ -68,7 +78,14 @@ class TenderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(), [
+            'department_name' => 'required|min:5'
+        ]);
+        $dep = Department::find($id);
+        $dep->name = request()->department_name;
+        if ($dep->save()) {
+            return redirect(route('department.index'))->with('success', 'Department updated successfully');
+        }
     }
 
     /**
@@ -79,6 +96,8 @@ class TenderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Department::find($id)->delete()) {
+            return redirect()->back()->with('success', 'Department deleted successfully');
+        }
     }
 }

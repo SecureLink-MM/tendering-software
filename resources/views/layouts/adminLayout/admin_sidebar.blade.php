@@ -7,13 +7,23 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('view.categories') }}">
-      <i class="fas fa-clipboard-list"></i>
-      <span>Categories</span></a>
+    <a class="nav-link" href="{{ route('department.index') }}">
+      <i class="fas fa-synagogue"></i>
+      <span>Departments</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('view.tenders') }}">
+    <a class="nav-link" href="{{ route('tender.index') }}">
       <i class="fas fa-paste"></i>
       <span>Tenders</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <i class="fas fa-award"></i>
+      <span>Award of Tenders</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <i class="far fa-building"></i>
+      <span>Company</span></a>
   </li>
 </ul>

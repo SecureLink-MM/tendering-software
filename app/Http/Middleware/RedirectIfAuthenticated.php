@@ -19,9 +19,10 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             return redirect('/home');
-        }else {
-            return redirect()->action('AdminController@login')->with('error', 'Please login to access');
         }
+        // else {
+        //     return redirect()->action('AdminController@login')->with('error', 'Please login to access');
+        // }
 
         return $next($request);
     }

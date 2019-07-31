@@ -24,7 +24,7 @@
           </div>
           <div class="mr-5">26 Categories</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="{{ route('view.categories') }}">
+        <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">View Details</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
