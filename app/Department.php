@@ -8,6 +8,6 @@ use App\Department;
 class Department extends Model
 {
     public function tenders(){
-        return $this->hasMany(Department::class, 'department_id');
+        return $this->hasMany(Tender::class, 'department_id');
     }
 }

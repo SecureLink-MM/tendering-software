@@ -16,10 +16,10 @@ class CreateTendersTable extends Migration
         Schema::create('tenders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('content');
             $table->string('close_date');
             $table->integer('department_id');
-            $table->string('featured');
             $table->timestamps();
         });
     }

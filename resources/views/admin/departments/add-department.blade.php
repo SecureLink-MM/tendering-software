@@ -25,7 +25,7 @@
             <div class="col-md-8 mt-3">
                 <div class="card">
                 <div class="card-header">
-                  <i class="fas fa-pencil-alt"></i> Add New Department
+                  <i class="fas fa-pencil-alt"></i> Add Department
                 </div>
                 <div class="card-body">
                     <form action="{{ route('department.store') }}" method="post">
@@ -35,7 +35,7 @@
                             <label for="department_name">Department Name</label>
                             <input type="text" name="department_name" id="department_name" class="form-control" required>
                         </div>
-                        <input type="submit" class="btn btn-success" value="Add Department">
+                        <input type="submit" class="btn btn-success" value="Save">
                     </form>
                 </div>
               </div>

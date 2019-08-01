@@ -23,7 +23,7 @@
     </div>
     @endif
 
-    <a href="{{ route('department.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Add New Department</a>
+    <a href="{{ route('department.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Add Department</a>
 
     <!-- DataTables Example -->
     <div class="card mb-3">
@@ -35,7 +35,6 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>No</th>
                 <th>Department Name</th>
                 <th>Action</th>
               </tr>
@@ -43,7 +42,6 @@
             <tbody>
               @foreach($departments as $dep)
               <tr>
-                <td>{{ $dep->id }}</td>
                 <td>{{ $dep->name }}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">

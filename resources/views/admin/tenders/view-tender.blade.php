@@ -23,7 +23,7 @@
     </div>
     @endif
 
-    <a href="{{ route('tender.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Add New Tender</a>
+    <a href="{{ route('tender.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Add Tender</a>
 
     <!-- DataTables Example -->
     <div class="card mb-3">
@@ -35,28 +35,32 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>No</th>
                 <th>Tender Name</th>
                 <th>Tender Description</th>
+                <th>Department Name</th>
                 <th>Close Date</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>No</td>
-                <td>Tender Name</td>
-                <td>Tender Description</td>
-                <td>Close Date</td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="" class="btn btn-sm btn-primary">Edit</a>&nbsp;
-                        <form action="" method="post">
-                            <input type="submit" class="btn btn-sm btn-danger" value="Delete">
-                        </form>
-                    </div>
-                </td>
-              </tr>
+              @foreach($tenders as $tender)
+                <tr>
+                  <td>{{ Str::words($tender->title,5) }}</td>
+                  <td>{!! Str::words($tender->content,5) !!}</td>
+                  <td>{{ $tender->department->name }}</td>
+                  <td>{{ $tender->close_date }}</td>
+                  <td>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                          <a href="{{ route('tender.edit',$tender->id) }}" class="btn btn-sm btn-primary">Edit</a>&nbsp;
+                          <form action="{{ route('tender.destroy',$tender->id) }}" method="post">
+                              @csrf
+                              {{ method_field('DELETE') }}
+                              <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                          </form>
+                      </div>
+                  </td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

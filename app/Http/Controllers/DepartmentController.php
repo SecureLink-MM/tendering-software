@@ -41,6 +41,7 @@ class DepartmentController extends Controller
         ]);
         $dep = new Department();
         $dep->name = request()->department_name;
+        $dep->slug = str_slug(request()->department_name);
         if ($dep->save()) {
             return redirect(route('department.index'))->with('success', 'Department has been create successfully!');
         }
