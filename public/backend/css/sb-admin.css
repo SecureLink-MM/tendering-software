@@ -2614,14 +2614,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #0C426F;
+  border-color: #0C426F;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #1287DA;
+  border-color: #1287DA;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -6985,7 +6985,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #0c426f !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10670,7 +10670,7 @@ body {
 
 .sidebar {
   width: 90px !important;
-  background-color: #212529;
+  background-color: #0C426F;
   min-height: calc(100vh - 56px);
 }
 
@@ -10707,7 +10707,7 @@ body {
 }
 
 .sidebar .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 
 .sidebar .nav-item .nav-link:active, .sidebar .nav-item .nav-link:focus, .sidebar .nav-item .nav-link:hover {
@@ -10911,4 +10911,8 @@ body.sidebar-toggled footer.sticky-footer {
   body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
+}
+
+i.fas.fa-user-circle.fa-fw{
+    color: #fff;
 }

@@ -23,7 +23,7 @@
     </div>
     @endif
 
-    <a href="{{ route('tender.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Add Tender</a>
+    <a href="{{ route('tender.create') }}" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Add Tender</a>
 
     <!-- DataTables Example -->
     <div class="card mb-3">

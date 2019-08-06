@@ -42,15 +42,25 @@ class TenderController extends Controller
             'title' => 'required|min:5',
             'department_id' => 'required',
             'content' => 'required',
+            'filename' => 'required',
+            'filename.*' => 'mimes:pdf',
             'close_date' => 'required'
         ]);
+
+        if (request()->has('filename')) {
+            $file = request()->file('filename');
+            $file_name = uniqid().$file->getClientOriginalName();
+        }
+
         $tender = new Tender();
         $tender->title = request()->title;
         $tender->slug = str_slug(request()->title);
         $tender->department_id = request()->department_id;
         $tender->content = request()->content;
+        $tender->filename = $file_name;
         $tender->close_date = request()->close_date;
         if ($tender->save()) {
+            $file->move(public_path('files'),$file_name);
             return redirect(route('tender.index'))->with('success', 'Tender has been created successfully');
         }
 
@@ -89,17 +99,22 @@ class TenderController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $tender = Tender::find($id);
-        $this->validate($request, [
-            'title' => 'required|min:5',
-            'department_id' => 'required',
-            'content' => 'required',
-            'close_date' => 'required'
-        ]);
-        $tender = new Tender();
+
+        if (request()->has('filename')) {
+            $file = request()->file('filename');
+            $file_name = uniqid().$file->getClientOriginalName();
+            $file->move(public_path('files'),$file_name);
+        }else {
+            $file_name = $tender->filename;
+        }
+
         $tender->title = request()->title;
+        $tender->slug = str_slug(request()->title);
         $tender->department_id = request()->department_id;
         $tender->content = request()->content;
+        $tender->filename = $file_name;
         $tender->close_date = request()->close_date;
         if ($tender->save()) {
             return redirect(route('tender.index'))->with('success', 'Tender updated successfully');

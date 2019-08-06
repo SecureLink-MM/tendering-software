@@ -14,8 +14,9 @@
         <i class="fas fa-user-circle fa-fw"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="">Hello! {{ Auth::user()->name }}</a>
         <a class="dropdown-item" href="{{ url('/') }}" target="_blank"><i class="fas fa-share-square"></i> Visit Site</a>
-        <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+        <a class="dropdown-item" href="{{ url('admin/user/'.Auth::user()->id) }}"><i class="fas fa-user"></i> Profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-power-off"></i> Logout</a>
       </div>

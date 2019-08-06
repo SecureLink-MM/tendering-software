@@ -17,9 +17,9 @@
       <span>Tenders</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{ route('award-tender.index')}}">
       <i class="fas fa-award"></i>
-      <span>Award of Tenders</span></a>
+      <span>Award Tenders</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">

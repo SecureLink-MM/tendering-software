@@ -22,7 +22,7 @@
     <!-- DataTables Example -->
     <div class="col-md-12 mt-3">
                 <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-dark text-white">
                   <i class="fas fa-pencil-alt"></i> Edit Tender
                 </div>
                 <div class="card-body">
@@ -47,11 +47,20 @@
                             <label for="tender_description">Tender Description</label>
                             <textarea name="content" id="editor1" class="form-control" rows="8" cols="80">{!! $tender->content !!}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="close_date">Close Date</label>
-                            <input type="date" name="close_date" id="close_date" class="form-control" value="{{ $tender->close_date }}" required>
+                        <div class="form-row mb-5">
+                            <div class="col">
+                              <label for="file">Upload PDF</label>
+                              <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="file" name="file">
+                                  <label class="custom-file-label" for="file">{{ asset('files/'.$tender->filename) }}</label>
+                              </div>
+                            </div>
+                            <div class="col">
+                                <label for="close_date">Close Date</label>
+                                <input type="date" name="close_date" id="close_date" class="form-control" value="{{ $tender->close_date }}" required>
+                            </div>
                         </div>
-                        <input type="submit" class="btn btn-success" value="Save">
+                        <input type="submit" class="btn btn-primary" value="Update">
                     </form>
                 </div>
               </div>
