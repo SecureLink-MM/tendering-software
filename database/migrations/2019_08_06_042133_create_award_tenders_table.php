@@ -16,6 +16,7 @@ class CreateAwardTendersTable extends Migration
         Schema::create('award_tenders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tender_name');
+            $table->string('slug')->unique();
             $table->string('company_name');
             $table->text('description')->nullable();
             $table->timestamps();

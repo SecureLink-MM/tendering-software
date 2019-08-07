@@ -70,7 +70,7 @@
                         <a href="{{ url('/') }}">တင်ဒါများ</a>
                     </li>
                     <li class="dropdown">
-                        <a href="{{ url('/awardtender') }}">ဆုရတင်ဒါများ</a>
+                        <a href="{{ url('/award-tender') }}">ဆုရတင်ဒါများ</a>
                     </li>
                 </ul>
             </div>

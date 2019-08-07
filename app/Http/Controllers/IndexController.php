@@ -22,7 +22,7 @@ class IndexController extends Controller
 
     public function tenderDetails($slug){
         $tender = Tender::where('slug',$slug)->first();
-        return view('tender-details')->with(compact('tender'));
+        return view('tenders.tender-details')->with(compact('tender'));
     }
 
     public function tenderByDepartment($slug){

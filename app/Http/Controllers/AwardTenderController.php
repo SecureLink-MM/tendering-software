@@ -43,6 +43,7 @@ class AwardTenderController extends Controller
 
       $awardtender = new AwardTender();
       $awardtender->tender_name = request()->tender_name;
+      $awardtender->slug = str_slug(request()->tender_name);
       $awardtender->company_name = request()->company_name;
       $awardtender->description = request()->description;
 
@@ -91,6 +92,7 @@ class AwardTenderController extends Controller
 
       $awardtender = AwardTender::find($id);
       $awardtender->tender_name = request()->tender_name;
+      $awardtender->slug = str_slug(request()->tender_name);
       $awardtender->company_name = request()->company_name;
       $awardtender->description = request()->description;
 

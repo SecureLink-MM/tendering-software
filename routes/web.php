@@ -2,7 +2,7 @@
 
 
 Route::get('/', 'IndexController@index');
-Route::get('/awardtender', 'IndexController@awardtender');
+Route::get('/award-tender', 'IndexController@awardtender');
 Route::get('/tender/{slug}', 'IndexController@tenderDetails')->name('tender.details');
 Route::get('/tender/department/{slug}', 'IndexController@tenderByDepartment')->name('tender.department');
 
