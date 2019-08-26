@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AwardTender;
+use Auth;
 
 class AwardTenderController extends Controller
 {
@@ -15,7 +16,8 @@ class AwardTenderController extends Controller
     public function index()
     {
         $awardtenders = AwardTender::all();
-        return view('admin.tenders.view-awardtender')->with(compact('awardtenders'));
+        $user = Auth::user();
+        return view('admin.tenders.view-awardtender')->with(compact('awardtenders', 'user'));
     }
 
     /**
@@ -25,7 +27,8 @@ class AwardTenderController extends Controller
      */
     public function create()
     {
-        return view('admin.tenders.add-awardtender');
+        $user = Auth::user();
+        return view('admin.tenders.add-awardtender')->with(compact('user'));
     }
 
     /**
@@ -73,7 +76,8 @@ class AwardTenderController extends Controller
     public function edit($id)
     {
         $awardtender = AwardTender::find($id);
-        return view('admin.tenders.edit-awardtender')->with(compact('awardtender'));
+        $user = Auth::user();
+        return view('admin.tenders.edit-awardtender')->with(compact('awardtender', 'user'));
     }
 
     /**

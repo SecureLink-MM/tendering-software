@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tender;
 use App\Department;
+use Auth;
 
 class TenderController extends Controller
 {
@@ -16,7 +17,8 @@ class TenderController extends Controller
     public function index()
     {
         $tenders = Tender::all();
-        return view('admin.tenders.view-tender')->with(compact('tenders', 'department'));
+        $user = Auth::user();
+        return view('admin.tenders.view-tender')->with(compact('tenders', 'department', 'user'));
     }
 
     /**
@@ -27,7 +29,8 @@ class TenderController extends Controller
     public function create()
     {
         $departments = Department::all();
-        return view('admin.tenders.add-tender')->with(compact('departments'));
+        $user = Auth::user();
+        return view('admin.tenders.add-tender')->with(compact('departments', 'user'));
     }
 
     /**
@@ -87,7 +90,8 @@ class TenderController extends Controller
     {
         $tender = Tender::find($id);
         $departments = Department::all();
-        return view('admin.tenders.edit-tender')->with(compact('tender', 'departments'));
+        $user = Auth::user();
+        return view('admin.tenders.edit-tender')->with(compact('tender', 'departments', 'user'));
     }
 
     /**

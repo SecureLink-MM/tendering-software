@@ -11,7 +11,8 @@
   <ul class="navbar-nav ml-auto">
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user-circle fa-fw"></i>
+        <!-- <i class="fas fa-user-circle fa-fw"></i> -->
+        <img src="{{ asset('profile/'.$user->profile->profile_image) }}" alt="default" width="30">
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
         <a class="dropdown-item" href="">Hello! {{ Auth::user()->name }}</a>

@@ -33,7 +33,9 @@ class AdminController extends Controller
         $departments = Department::take(5)->get();
         $awardtenders = AwardTender::take(5)->get();
 
-        return view('admin.dashboard')->with(compact('tenderCount', 'departmentCount', 'awardtenderCount', 'tenders', 'departments', 'awardtenders'));
+        $user = Auth::user();
+
+        return view('admin.dashboard')->with(compact('tenderCount', 'departmentCount', 'awardtenderCount', 'tenders', 'departments', 'awardtenders', 'user'));
     }
 
     public function logout(){
